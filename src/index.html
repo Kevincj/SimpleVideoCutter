@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <video id="video" width="200" height="200" controls>
+      <source src="../videos/1.m4v" type="video/mp4">
+    </video>
+    <button id="timestamp">TIMESTAMP</button>
+    <div id="value"> 0</div>
+    <input type="file" id = "videopath">
+    <script>
+      document.querySelector("#timestamp").addEventListener('click', (event) =>{
+    document.getElementById("value").innerText = document.getElementById("video").currentTime;
+    ffmpeg = require('js-ffmpeg');
+    
+  })
+    </script>
+  </body>
+</html>
