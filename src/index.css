@@ -4,3 +4,23 @@ body {
   max-width: 38rem;
   padding: 2rem;
 }
+
+ul {
+  list-style-type: none;
+}
+
+li.video-fragment-element {
+  width: 20rem;
+  height: 30px;
+  border-width: 1px;
+  border-style: solid;
+}
+div.video-fragment-timestamps {
+
+  width: 16rem;
+  height: 25px;
+}
+button.video-fragment-remove-button{
+  width: 2rem;
+  height: 25px;
+}

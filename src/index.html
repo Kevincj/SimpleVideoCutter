@@ -6,8 +6,18 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
+    <ul id="video-fragment-list">
+      <template id="video-fragment-template">
+        <li class="video-fragment-element">
+          <span class="video-fragment-timestamps">
+            00:00:00 - 00:00:00
+          </span>
+          <button class="video-fragment-remove-button">R</button>
+        </li>
+      </template>
+    </ul>
     <video id="video" width="200" height="200" controls>
-      <source src="../videos/1.m4v" type="video/mp4">
+      <source src="../resources/1.m4v" type="video/mp4">
     </video>
     <button id="timestamp">TIMESTAMP</button>
     <div id="value"> 0</div>
@@ -15,9 +25,28 @@
     <script>
       document.querySelector("#timestamp").addEventListener('click', (event) =>{
     document.getElementById("value").innerText = document.getElementById("video").currentTime;
-    ffmpeg = require('js-ffmpeg');
+    ffmpeg = require('fluent-ffmpeg-extended');
     
   })
+  function createFragment(timestamp) {
+    var template = document.querySelector("#video-fragment-template");
+    var list = document.querySelector("#video-fragment-list");
+    var clone = template.content.cloneNode(true);
+    clone.childNodes[1].childNodes[1].innerText=timestamp;
+    list.appendChild(clone);
+    document.querySelector("#video-fragment-list").lastElementChild.lastElementChild.addEventListener("click", event=>{
+      event.target.parentNode.remove();
+    });
+  }
+  if ('content' in document.createElement('template')){
+    createFragment("00:00:00-00:00:01");
+    createFragment("00:00:01-00:00:02");
+    createFragment("00:00:04-00:00:06");
+    createFragment("00:00:08-00:00:10");
+
+  }
+
     </script>
+ 
   </body>
 </html>
