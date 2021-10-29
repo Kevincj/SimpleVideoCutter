@@ -1,1 +1,1 @@
-# SimpleVideoCutter
+# SimpleVideoCutter - Electron
